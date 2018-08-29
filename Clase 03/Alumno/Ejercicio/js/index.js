@@ -26,8 +26,4 @@ for (var i = 6; i < 9; i++) {
 for (var i = 9; i < 10; i++) {
   day = daysOfTheWeek[i]
   console.log(day + ' no es un valor existente')
-
-  // if (i === 9) {
-  //   break
-  // }
 }
