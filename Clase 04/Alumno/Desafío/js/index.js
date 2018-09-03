@@ -1,16 +1,3 @@
-function search (student) {
-  var name
-
-  for (var i = 0; i < student.length; i++) {
-    name = student[i]
-    
-  }
-
-  return -1
-}
-
-var name = prompt('Ingrese un nombre')
-
 var studentsList = [
   {
     firstName: 'Juan',
@@ -34,13 +21,24 @@ var studentsList = [
   }
 ]
 
-var message
+function search (name, studentsList) {
+  var student
 
-if (name === search(studentsList)) {
-  message =
-    'Se ha encontrado a ' + name + ' en la posicion ' + 
+  for (var i = 0; i < studentsList.length; i++) {
+    student = studentsList[i]
+    if (name === student.firstName || name === student.lastName) {
+      return i
+    }
+  }
+  return -1
+}
+
+var name = prompt('Ingrese un nombre')
+
+var result = search(name, studentsList)
+
+if (result !== -1) {
+  console.log('Se ha encontrado a ' + name + ' en la posicion ' + result)
 } else {
-  message = 'El nombre no existe'
-} 
-
-console.log(message)
+  console.log('El usuario ' + name + ' no existe')
+}
