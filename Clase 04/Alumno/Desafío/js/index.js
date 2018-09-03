@@ -41,6 +41,6 @@ if (name === search(studentsList)) {
     'Se ha encontrado a ' + name + ' en la posicion ' + 
 } else {
   message = 'El nombre no existe'
-}
+} 
 
 console.log(message)

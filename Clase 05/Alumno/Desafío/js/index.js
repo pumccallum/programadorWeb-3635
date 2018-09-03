@@ -1,3 +1,23 @@
+var oldStudent = [
+  {
+    firstName: 'Juan',
+    lastName: 'Pérez',
+    dni: 45678987,
+    email: 'juan@gmail.com'
+  },
+  {
+    firstName: 'Ana',
+    lastName: '',
+    dni: 45678989,
+    email: 'ana@gmail.com'
+  },
+  {
+    firstName: '',
+    lastName: 'Mármol',
+    dni: 45678956,
+    email: 'pedro@gmail.com'
+  }
+
 function Student (firstName, lastName, dni, email) {
   var id = Math.random()
 
@@ -11,12 +31,14 @@ function Student (firstName, lastName, dni, email) {
   }
 
   this.fullName = function () {
-    if (firstName && lastName) {
-      return firstName + ' ' + lastName
-    } else if (!firstName && lastName) {
-      return lastName
-    } else if (firstName && !lastName) {
-      return firstName
+    if (this.firstName && this.lastName) { //uso el this. por si se modifica mas adelante
+      return this.firstName + ' ' + this.lastName
+    } else if (!this.firstName && this.lastName) {
+      return this.lastName
+    } else if (this.firstName && !this.lastName) {
+      return this.firstName
+    } else {
+      return ''
     }
   }
 }
@@ -44,3 +66,13 @@ console.log(id3)
 
 var fullName3 = student3.fullName()
 console.log(fullName3)
+
+
+var oldStudent
+
+var newStudent
+
+for (var i; i < oldStudent.length; i++) {
+  oldStudent = oldStudents[i]
+  newStudent=new Student()
+}
