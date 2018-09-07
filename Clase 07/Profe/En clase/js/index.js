@@ -41,116 +41,59 @@ console.log('Init app')
 
 // console.log(savedCars)
 
-// var savedAuth = localStorage.getItem('auth')
+var savedAuth = localStorage.getItem('auth')
 
-// if (!savedAuth) {
-//   var userName = prompt('Ingresá tu usuario')
-//   var password = prompt('Ingresá tu contraseña')
+if (!savedAuth) {
+  var userName = prompt('Ingresá tu usuario')
+  var password = prompt('Ingresá tu contraseña')
 
-//   var auth = {
-//     userName: userName,
-//     password: password
-//   }
+  var auth = {
+    userName: userName,
+    password: password
+  }
 
-//   var stringyAuth = JSON.stringify(auth)
+  var stringyAuth = JSON.stringify(auth)
 
-//   localStorage.setItem('auth', stringyAuth)
-// } else {
-//   var parsedAuth = JSON.parse(savedAuth)
+  localStorage.setItem('auth', stringyAuth)
+} else {
+  var parsedAuth = JSON.parse(savedAuth)
 
-//   var passwordCheck = prompt('Ingresá tu contraseña como está guardada')
+  var passwordCheck = prompt('Ingresá tu contraseña como está guardada')
 
-//   if (parsedAuth.password === passwordCheck) {
-//     console.log('Contraseña correcta')
-//   }
-// }
+  if (parsedAuth.password === passwordCheck) {
+    console.log('Contraseña correcta')
+  }
+}
 
 // console.log('Estas logueado')
 
-// var savedUserSetting = localStorage.getItem('userSettings')
+var savedUserSetting = localStorage.getItem('userSettings')
 
-// if (!savedUserSetting) {
-//   var firstName = prompt('Ingresa tu nombre')
+if (!savedUserSetting) {
+  var firstName = prompt('Ingresa tu nombre')
 
-//   var language = prompt('Ingresa tu idioma')
+  var language = prompt('Ingresa tu idioma')
 
-//   var userSettings = {
-//     firstName: firstName,
-//     language: language
-//   }
+  var userSettings = {
+    firstName: firstName,
+    language: language
+  }
 
-//   var stringifyUserSetting = JSON.stringify(userSettings)
+  var stringifyUserSetting = JSON.stringify(userSettings)
 
-//   localStorage.setItem('userSettings', stringifyUserSetting)
-// } else {
-//   var parsedUserSettings = JSON.parse(savedUserSetting)
+  localStorage.setItem('userSettings', stringifyUserSetting)
+} else {
+  var parsedUserSettings = JSON.parse(savedUserSetting)
 
-//   switch (parsedUserSettings.language) {
-//     case 'ES':
-//       console.log('Hola ' + parsedUserSettings.firstName)
-//       break
-//     case 'PT':
-//       console.log('Oi ' + parsedUserSettings.firstName)
-//       break
-//     default:
-//       console.log('Hello ' + parsedUserSettings.firstName)
-//       break
-//   }
-// }
-
-// var userSettings = {
-//   firstName: firstName,
-//   language: language
-// }
-
-// if (!userSettings) {
-//   var pepe = 'Hola'
-//   return 'No existe el usuario'
-// }
-
-// if (!userSettings.language)
-
-// if (!userSettings.firstName) return 'No existe el nombre'
-
-// return 'Existe todo el usuario'
-
-function getLocalList (key) {
-  // Valido que reciba un string
-  if (typeof key === 'string') {
-    // Trato de recuperar la lista del localStorage
-    var localList = localStorage.getItem(key)
-    if (localList) {
-      // Si la lista existía la tranformo en JavaScript y la devuelvo
-      var parsedList = JSON.parse(localList)
-      return parsedList
-    } else {
-      // Sino existía devuelvo un array vacío
-      return []
-    }
+  switch (parsedUserSettings.language) {
+    case 'ES':
+      console.log('Hola ' + parsedUserSettings.firstName)
+      break
+    case 'PT':
+      console.log('Oi ' + parsedUserSettings.firstName)
+      break
+    default:
+      console.log('Hello ' + parsedUserSettings.firstName)
+      break
   }
 }
-
-function setLocalList (key, list) {
-  // Verifico los parámetros recibidos
-  if (typeof key === 'string' && Array.isArray(list)) {
-    // Convierto a JSON el array
-    var strList = JSON.stringify(list)
-    // Guardo en el localStorage pisando la key
-    localStorage.setItem(key, strList)
-  }
-}
-
-var savedList = getLocalList('list')
-
-var firstName = prompt('Ingresá tu nombre')
-
-var lastName = prompt('Ingresá tu apellido')
-
-var studentObj = {
-  firstName: firstName,
-  lastName: lastName
-}
-
-savedList.push(studentObj)
-
-setLocalList('list', savedList)
