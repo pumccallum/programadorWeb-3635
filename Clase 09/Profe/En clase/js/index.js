@@ -54,44 +54,40 @@
 //   }
 // }
 
-// var buttonNode = document.getElementById('button')
+var buttonNode = document.getElementById('button')
 
-// buttonNode.onclick = validateAge
+buttonNode.onclick = validateAge
 
-// var ageNode = document.getElementById('age')
+var ageNode = document.getElementById('age')
 
-// ageNode.onblur = validateAge
+ageNode.onblur = validateAge
 
-// var age2Node = document.getElementById('age2')
+var age2Node = document.getElementById('age2')
 
-// age2Node.oninput = validateAge
+age2Node.oninput = validateAge
 
-// function validateAge (event) {
-//   var inputNode = event.target
+function validateAge (event) {
+  var inputNode = event.target
 
-//   var value = inputNode.value
+  var value = inputNode.value
 
-//   var parsedValue = parseInt(value, 10)
+  var parsedValue = parseInt(value, 10)
 
-//   if (isNaN(parsedValue)) {
-//     inputNode.classList.add('is-invalid')
-//     inputNode.classList.remove('is-valid')
-//   } else if (parsedValue < 18) {
-//     inputNode.classList.add('is-invalid')
-//     inputNode.classList.remove('is-valid')
-//   } else {
-//     inputNode.classList.add('is-valid')
-//     inputNode.classList.remove('is-invalid')
-//   }
-// }
+  if (isNaN(parsedValue)) {
+    inputNode.classList.add('is-invalid')
+    inputNode.classList.remove('is-valid')
+  } else if (parsedValue < 18) {
+    inputNode.classList.add('is-invalid')
+    inputNode.classList.remove('is-valid')
+  } else {
+    inputNode.classList.add('is-valid')
+    inputNode.classList.remove('is-invalid')
+  }
+}
 
 var passwordNode = document.getElementById('password')
 
 passwordNode.oninput = validatePassword
-
-var buttonNode = document.getElementById('button')
-
-buttonNode.disabled = true
 
 function validatePassword (event) {
   var inputNode = event.target
@@ -99,8 +95,6 @@ function validatePassword (event) {
   var value = inputNode.value
 
   var regexPassword = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/
-
-  // var regexPassword = new RegExp('^(?=.*[A-Za-z])(?=.*d)[A-Za-zd]{8,}$')
 
   if (!regexPassword.test(value)) {
     inputNode.classList.add('is-invalid')

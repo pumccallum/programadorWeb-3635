@@ -58,6 +58,48 @@ function addStudent () {
   dniNode.classList.remove('is-valid')
 }
 
+// Validar dni
+
+var deleteDniNode = document.getElementById('deleteDni')
+
+deleteDniNode.onblur = validateDeleteDniField
+
+var deleteStudentButtonNode = document.getElementById('deleteStudentButton')
+
+deleteStudentButtonNode.onclick = deleteStudent
+
+function validateDeleteDniField (event) {
+  var inputNode = event.target
+
+  var parsedValue = parseInt(inputNode.value, 10)
+
+  var index = searchStudentIndexByDni(inputNode.value, studentsList)
+
+  if (isNaN(parsedValue) || parsedValue <= 0 || index > -1) {
+    deleteStudentButtonNode.disabled = false
+  } else {
+    deleteStudentButtonNode.disabled = true
+  }
+}
+
+function deleteStudent () {
+  var inputNode = document.getElementById('deleteDni')
+  var index = searchStudentIndexByDni(inputNode.value, studentsList)
+
+  if (index !== -1) {
+    studentsList.splice(index, 1)
+    console.log(studentsList)
+  }
+
+  setLocalList(LOCAL_KEY, studentsList)
+
+  student = document.getElementById(inputNode.value)
+
+  mainListNode.removeChild(student)
+}
+
+//remove chil
+
 // Funciones auxiliares
 
 function searchStudentIndexByDni (dni, studentsList) {
