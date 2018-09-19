@@ -117,6 +117,61 @@ function deleteStudent () {
 
 //Buscar estudiante
 
+var searchStudentButtonNode = document.getElementById('searchStudentButton')
+
+searchStudentButtonNode.onclick = searchStudent
+
+function searchStudent (event) {
+  var searchStudentNode = document.getElementById('searchText')
+  var searchListNode = document.getElementById('searchList')
+
+  var index = searchStudentIndexByText(searchStudentNode.value, studentsList)
+
+  var student = studentsList[index]
+
+  searchListNode.innerHTML = ''
+
+  if (student) {
+    var studentNode = createStudentNode(student)
+
+    searchListNode.appendChild(studentNode)
+  }
+
+  //console.log(studentsList[index])
+}
+
+function searchStudentIndexByText (text, studentsList) {
+  var student
+
+  for (var i = 0; i < studentsList.length; i++) {
+    student = studentsList[i]
+    if (
+      includesText(text, student.firstName) ||
+      includesText(text, student.lastName)
+    ) {
+      return i
+    }
+  }
+
+  return -1
+}
+
+function includesText (text, baseText) {
+  // Valido que ambos parámetros sean string
+  if (typeof text === 'string' && typeof baseText === 'string') {
+    // Verifico si el primer parámetro se encuentra dentro del segundo
+    var textUpperCase = text.toUpperCase()
+    var baseTextUpperCase = baseText.toUpperCase()
+    if (baseTextUpperCase.indexOf(textUpperCase) !== -1) {
+      return true
+    } else {
+      return false
+    }
+  } else {
+    return false
+  }
+}
+
 // Funciones auxiliares
 
 function searchStudentIndexByDni (dni, studentsList) {
