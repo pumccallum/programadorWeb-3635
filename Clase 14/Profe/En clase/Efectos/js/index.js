@@ -43,12 +43,34 @@ $(document).ready(function () {
 
   //  - `.slideDown()`
 
-  $('#cover1').click(
-    function () {
-      $('#cover6').slideToggle(2000, function () {})
+  // $('#cover1').click(
+  //   function () {
+  //     $('#cover6').slideToggle(2000, function () {})
+  //   }
+  //   // function () {
+  //   //   $('#cover6').slideDown(2000, function () {})
+  //   // }
+  // )
+
+  var coverNode = $('#covers')
+
+  var coversPosition = coverNode.position()
+
+  var coversTopPosition = coversPosition.top
+
+  $(window).scroll(function () {
+    var scrollTop = $(this).scrollTop()
+
+    if (scrollTop > coversTopPosition - 200) {
+      coverNode.addClass('covers-show')
+      coverNode.removeClass('covers-hide')
+    } else if (scrollTop <= coversTopPosition - 200) {
+      coverNode.removeClass('covers-show')
+      coverNode.addClass('covers-hide')
     }
-    // function () {
-    //   $('#cover6').slideDown(2000, function () {})
-    // }
-  )
+  })
 })
+
+// $(document).ready(function () {
+//   $('#').hide(2000, function () {})
+// })
