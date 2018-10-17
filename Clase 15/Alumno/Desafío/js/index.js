@@ -15,13 +15,14 @@ $(document).ready(function () {
 
   var showMoreButton = $('#showMore')
 
-  getData('https://swapi.co/api/people/', showPeople)
+  getData('https://swapi.co/api/peoplpe/', showPeople)
 
   function showPeople (error, data) {
     if (error) {
       console.log('Error ', error)
     } else {
       console.log('Los personajes son:', data)
+
       var peoples = data.results
 
       var people
@@ -43,11 +44,3 @@ $(document).ready(function () {
     }
   }
 })
-
-// var AjaxCall = $.ajax('https://swapi.co/api/people/5/')
-//   .done(function (data) {
-//     console.log('Respuesta: ', data)
-//   })
-//   .fail(function (error) {
-//     console.log('Error: ', error)
-//   })
